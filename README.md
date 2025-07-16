@@ -57,14 +57,13 @@ A simple and functional URL shortener built using the **MERN stack**:
     npm install
 
 ### 6. Start the frontend development server
-    ```bash
     npm run dev
 
 
  Notes
 -------------------------------
 
-The URL Shortener will be deployed to **Vercel** after makinf some improvements in frontend.
+The URL Shortener will be deployed to **Vercel** after making some improvements in frontend.
 
 
     
