@@ -37,3 +37,12 @@ export const updateShortUrl = async (req, res) => {
   res.status(200).json(urlDoc);
 };
 
+// DELETE /shorten/:code
+export const deleteShortUrl = async (req, res) => {
+  const { code } = req.params;
+  const result = await Url.deleteOne({ shortCode: code });
+  if (result.deletedCount === 0)
+    return res.status(404).json({ error: "Not found" });
+
+  res.sendStatus(204);
+};
