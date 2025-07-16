@@ -1,19 +1,18 @@
-import express, { Router } from 'express';
-import { createShortUrl } from '../controllers/url.js';
-import { getUrlStats } from '../controllers/url.js';
-import {getOldUrl} from '../controllers/url.js'
-import { updateShortUrl } from '../controllers/url.js';
-import { deleteShortUrl } from '../controllers/url.js';
+import express from 'express';
+import {
+  createShortUrl,
+  getAllUrls,
+  deleteShortUrl,
+  updateShortUrl,
+  getUrlStats
+} from '../controllers/url.js';
 
 const router = express.Router();
 
-router.post('/shorten', createShortUrl);
-router.get('/shorten/:code/stats', getUrlStats);
-router.get('/shorten/:code', getOldUrl);
-router.put('/shorten/:code', updateShortUrl);
-router.delete('/shorten/:code', deleteShortUrl);
-
-
-
+router.post('/', createShortUrl);
+router.get('/all', getAllUrls);
+router.delete('/:code', deleteShortUrl);
+router.put('/:code', updateShortUrl);
+router.get('/:code/stats', getUrlStats);
 
 export default router;

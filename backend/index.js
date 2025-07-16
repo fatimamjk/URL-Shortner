@@ -2,24 +2,30 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import urlRoutes from './routes/url.js'; 
-dotenv.config();
+import urlRoutes from './routes/url.js';
 
+dotenv.config();
 const app = express();
-app.use(cors());
+
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.DATABASE_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("DB connected successfully!"))
-.catch((err) => console.log("DB connection failed:", err));
+mongoose.connect(process.env.DATABASE_URL)
+  .then(() => console.log("DB connected"))
+  .catch((err) => console.error("DB connection failed:", err));
 
-// Route setup
-app.use('/url', urlRoutes);
+app.use('/api/url', urlRoutes);
 
-// Start server
+// Redirection endpoint
+app.get('/:code', async (req, res) => {
+  const { default: Url } = await import('./models/url.js');
+  const { code } = req.params;
+  const urlDoc = await Url.findOne({ shortCode: code });
+  if (!urlDoc) return res.status(404).send("URL not found");
+  urlDoc.accessCount++;
+  await urlDoc.save();
+  res.redirect(urlDoc.url);
+});
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
