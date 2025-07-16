@@ -33,26 +33,21 @@ A simple and functional URL shortener built using the **MERN stack**:
 ## How to Run Locally
 
 ### 1. Clone the Repository
-    ```bash
     git clone https://github.com/fatimamjk/fatima-innovaxel-mustafa.git
     cd fatima-innovaxel-mustafa
 
 ### 2. Setup Backend
-    ```bash
     cd backend
     npm install
     
 ### 3. Replace data of .env file
-    ```bash
     DATABASE_URL=your_mongodb_connection_url
     PORT=3000
 
 ### 4. Start backend server
-    ```bash
     node index.js
 
 ### 5. Setup Frontend (in a new terminal/)
-    ```bash
     cd ../frontend
     npm install
 
