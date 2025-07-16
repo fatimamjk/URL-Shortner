@@ -23,3 +23,17 @@ export const getOldUrl = async (req, res) => {
   res.status(200).json(urlDoc);
 };
 
+
+// PUT /shorten/:code
+export const updateShortUrl = async (req, res) => {
+  const { url } = req.body;
+  const { code } = req.params;
+  const urlDoc = await Url.findOne({ shortCode: code });
+  if (!urlDoc) return res.status(404).json({ error: "Not found" });
+
+  urlDoc.url = url;
+  urlDoc.updatedAt = Date.now();
+  await urlDoc.save();
+  res.status(200).json(urlDoc);
+};
+
