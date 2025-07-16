@@ -55,7 +55,7 @@ A simple and functional URL shortener built using the **MERN stack**:
     npm run dev
 
 
- Notes
+ Note
 -------------------------------
 
 The URL Shortener will be deployed to **Vercel** after making some improvements in frontend.
