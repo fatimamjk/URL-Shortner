@@ -58,7 +58,7 @@ A simple and functional URL shortener built using the **MERN stack**:
  Note
 -------------------------------
 
-The URL Shortener will be deployed to **Vercel** after making some improvements in frontend.
+The URL Shortener will be deployed to **Vercel** after making some enhancements to the frontend.
 
 
     
