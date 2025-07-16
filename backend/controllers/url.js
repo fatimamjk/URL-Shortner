@@ -12,6 +12,16 @@ export const createShortUrl = async (req, res) => {
   res.status(201).json(newUrl);
 };
 
+
+// GET /shorten/:code/stats
+export const getUrlStats = async (req, res) => {
+  const { code } = req.params;
+  const urlDoc = await Url.findOne({ shortCode: code });
+  if (!urlDoc) return res.status(404).json({ error: "Not found" });
+
+  res.status(200).json(urlDoc);
+};
+
 // GET /shorten/:code
 export const getOldUrl = async (req, res) => {
   const { code } = req.params;
