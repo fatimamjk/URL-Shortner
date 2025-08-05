@@ -61,3 +61,9 @@ A simple and functional URL shortener built using the **MERN stack**:
 ### 6. Start the frontend development server
 
     npm run dev
+
+## 🔍 Frontend Preview
+
+Here’s how the frontend of the URL Shortener looks:
+
+![Frontend Screenshot](src/assets/urlshortnerimg.png)
