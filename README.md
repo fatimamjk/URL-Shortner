@@ -66,4 +66,4 @@ A simple and functional URL shortener built using the **MERN stack**:
 
 Here’s how the frontend of the URL Shortener looks:
 
-![Frontend Screenshot](src/assets/urlshortnerimg.png)
+![Frontend Screenshot](frontend/src/assets/urlshortnerimg.png)
