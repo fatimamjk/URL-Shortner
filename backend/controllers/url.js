@@ -1,6 +1,5 @@
-
-import { nanoid } from 'nanoid';
-import Url from '../models/url.js';
+import { nanoid } from "nanoid";
+import Url from "../models/url.js";
 
 export const createShortUrl = async (req, res) => {
   const { url } = req.body;
